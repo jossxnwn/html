@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- saved from url=(0131)https://centros.edu.xunta.gal/ieslosadadieguez/aulavirtual/pluginfile.php/165509/question/questiontext/30367/3/176116/Tarefa2C.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usando follas de estilo vinculadas</title>
+
+    <!--  1 Completa a seguinte liña para vincular a folla de estilos -->
+    <!-- <link rel="stylesheet" href="____.css"> -->
+     <link rel="stylesheet" href="estilos.css">
+  </head>
+
+  <body>
+    <h1 id="titulo" class="negro">Cambio de estilo con follas vinculadas</h1>
+    <button id="botonCambiar" onclick="cambiarHoja()">Cambiar color</button>
+  
+
+  <script>
+    // 2 Completa o código JavaScript
+
+    // a) Obten o elemento <h1> e gárdao nunha constante chamada "titulo"
+        const titulo = document.querySelector('h1');
+    // b) Obten o elemento <button> e gárdao nunha constante chamada "boton"
+        const boton = document.querySelector('button');
+    // c) Fai que ao premer o botón, se alternen as clases "negro" e "verde"
+        function cambiarHoja(){ //funcion para cambiar de color
+            titulo.classList.toggle('texto-verde');
+			titulo.classList.toggle('texto-negro');
+        }
+    // Pista: usa o método classList.toggle()
+  </script>
+</body></html>

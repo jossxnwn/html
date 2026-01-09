@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prueba</title>
+    <style>
+        body{
+            background-color: bisque;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            gap: 20px;
+        }
+        .temaO ,.temaV{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: white;
+            width: 250px;
+            height: 250px;
+            border: solid 2px;
+            border-radius: 20px;
+
+        }
+        .tema-oscuro{
+            background-color: black;
+            color: white;
+        }
+        .tema-verde{
+            background-color: green;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="temaO">
+        <h1>Tema oscuro</h1>
+        <button onclick="cambiarOscuro()">cambiar de temas</button>
+    </div>
+    <div class="temaV">
+        <h1>Tema verde</h1>
+        <button>cambiar de temas</button>
+    </div>
+    <script>
+        const bloqueOscuro = document.querySelector('tema0')
+        function cambiarOscuro(){
+            bloqueOscuro.classList.toggle('tema-oscuro')
+            bloqueOscuro.classList.toggle('tema-verde')
+        }
+    </script>
+</body>
+</html>

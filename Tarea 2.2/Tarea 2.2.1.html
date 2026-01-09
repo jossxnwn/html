@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Añadir elemento a lista</title>
+        <style>
+            body {transition: opacity ease-in 0.2s; } 
+            body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+        </style>
+    </head>
+
+    <body>
+        <h1>Programación en JavaScript</h1>
+        <p>A programación en JavaScript pode ser unha actividade sinxela e divertida.</p>
+        
+        <script>
+            let follanova = null; //creo una variable global
+            function follaClara(){
+                if (follanova) return; //compruebo que no exista para evitar duplicarse
+                follanova = document.createElement('style'); //creamos el elemento style
+                follanova.innerHTML = ` 
+                h1 {
+                    color: #fff;
+                    background: black;
+                }
+                p {
+                    font-style: italic;
+                }`; //damos estilo a la hoja con css
+                document.head.appendChild(follanova); //insertamos follanova en el head
+            }
+            function devolver(){ //eliminamos el elemento
+                if (follanova){
+                    follanova.remove(); // borra el elemento del HTML
+                    follanova = null;   // vuelve a asignar el valor null a la hoja
+                }
+            }
+        </script>
+        
+        <button onclick='follaClara()'>Estilo Claro</button>
+        <button onclick="devolver()">Restaurar</button>
+    </body>
+</html>

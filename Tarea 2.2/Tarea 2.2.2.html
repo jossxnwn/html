@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .letraNegra{
+            color:black;
+        }
+        .letraRoja{
+            color: red;
+        }
+        .fondoNegro{
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="letraNegra">Texto rojo</h1>
+    <script>
+        const texto = document.querySelector('h1'); //selecciono el h1
+        texto.classList.add('letraRoja'); //añadimos una clase a un texto
+        texto.classList.remove('letraRoja'); //quitamos una clase a un texto
+        texto.classList.toggle('fondoNegro');
+        console.log(texto.classList);
+    </script>
+</body>
+</html>
