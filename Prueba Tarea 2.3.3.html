@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family:GravitasOne-Regular;
+            src: url(fonts/GravitasOne-Regular.ttf);
+        }
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: rgba(147, 91, 179, 0.329);
+        }
+        button{
+            cursor: pointer;
+        }
+        .listaDesordenada{
+            background: rgb(195, 173, 255);
+            border: rgb(138, 96, 253) 5px solid;
+            width: auto;
+            height: 800px;
+            display: flex;
+            padding:130px 20px 0px 20px;
+            align-items: center;
+            flex-direction: column;
+            gap: 50px;
+            color: rgb(146, 82, 198);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        .listaDesordenada h1{
+            font-family: GravitasOne-Regular;
+        }
+        .listaDesordenada li{
+            color: black;
+            list-style: none;
+            clear: left;
+        }
+        .placeholder{
+            position: absolute;
+            top:50%;
+            transform: translateY(-50%);
+            left: 3px;
+            font-size: 11px;
+            
+        }
+        .input{
+            outline:none;
+            width: 300px;
+        }
+        .input:focus ~ .placeholder{
+            position: absolute;
+            transform: translateY(-50%);
+            
+        }
+        .lineaTexto{
+            position: relative;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="listaDesordenada" id="contenedor">
+        <h1>LISTA DESORDENADA</h1>
+        <div class="lineaTexto">
+            <label class="placeholder">Texto</label>
+            <input id="inputText" type="text" class="input" style="text-align:left;">
+        </div>
+        <button id="botonAñadir" class="boton_añadir">añadir</button>
+        <button id="botonEliminar" class="boton_eliminar">eliminar todo</button>
+        <button id="botonEliminar1" class="boton_eliminar_1">Eliminar 1 elemento</button>
+        
+    </div>
+    <script>
+        //Buscamos bariables importante
+        const botonAñadir = document.getElementById("botonAñadir");
+        const botonEliminar1 = document.getElementById("botonEliminar1");
+        const botonEliminar = document.getElementById("botonEliminar");
+        const inputText = document.getElementById("inputText");
+        const contenedor = document.getElementById("contenedor");
+        let lista = null; //declaro lista aqui para hacerle saber a añadir elemento que si existe
+        //creamos la funcion añadir elemento
+        function añadir_elemento(){
+            //si no esta creado lista desordenada se crea
+            if (!lista){
+                lista = document.createElement('ul'); //creo una lista desordenada
+                contenedor.appendChild(lista); //en contenedor creo la lista desordenada
+            };
+            //Busco variables importante
+            const elementoLista = document.createElement("li");
+            const textoInterior = document.createTextNode(inputText.value);
+            elementoLista.appendChild(textoInterior);
+            lista.appendChild(elementoLista);
+        };
+        //Funcion para eliminar todos los elementos
+        function eliminar_elemento(){
+            const listaSeleccionada = document.querySelector('ul');
+            if (listaSeleccionada){
+                lista.remove();
+                inputText.value = "";
+                lista = null;
+            }else{
+                alert('No hay nada que eliminar')
+            };
+        };
+        //Funcion para eliminar el ultimo elemento
+        function eliminar_un_elemento(){
+            const lista = document.querySelector('ul')
+            if (lista && lista.lastElementChild){
+                const ultimoHijo = lista.lastElementChild;
+                lista.removeChild(ultimoHijo);
+            }else{
+                alert("No hay elementos hijos");
+            }
+        };
+        botonAñadir.addEventListener('click', añadir_elemento);
+        botonEliminar.addEventListener('click', eliminar_elemento);
+        botonEliminar1.addEventListener('click', eliminar_un_elemento);
+    </script>
+</body>
+</html>
